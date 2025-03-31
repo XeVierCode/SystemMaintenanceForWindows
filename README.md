@@ -2,6 +2,10 @@
 
 A PowerShell-based GUI application for performing various system maintenance tasks on Windows. This tool updates drivers, software, Chocolatey packages, and Windows apps (via winget), verifies system settings, runs the System File Checker (SFC), and performs diagnostics on disk health and performance.
 
+
+![powershell_NC0RTXyTBS](https://github.com/user-attachments/assets/d352b7e6-f9c8-4fa3-999b-6efaec83fcb7)
+
+
 ---
 
 ## Release: v1.0.0 – Modernized GUI & Maintenance Enhancements
