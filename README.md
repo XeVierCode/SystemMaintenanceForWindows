@@ -1,4 +1,3 @@
-markdown
 # System Maintenance App
 
 A PowerShell-based GUI application for performing various system maintenance tasks on Windows. This tool updates drivers, software, Chocolatey packages, and Windows apps (via winget), verifies system settings, runs the System File Checker (SFC), and performs diagnostics on disk health and performance.
