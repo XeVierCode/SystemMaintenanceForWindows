@@ -1,59 +1,78 @@
+markdown
 # System Maintenance App
 
-A PowerShell-based GUI application for performing various system maintenance tasks on Windows. This script checks for driver and software updates, updates Chocolatey and Windows apps (using winget), verifies system settings, runs the System File Checker (SFC), and performs diagnostics on disk health and system performance.
+A PowerShell-based GUI application for performing various system maintenance tasks on Windows. This tool updates drivers, software, Chocolatey packages, and Windows apps (via winget), verifies system settings, runs the System File Checker (SFC), and performs diagnostics on disk health and performance.
 
-## Features
+> **Note:** This project is completely free and open source. It is provided for personal and community use only and **cannot be sold**.
 
-- **Elevation Check:**  
-  Automatically re-launches the script with administrator privileges if needed.
+---
 
-- **Windows Update:**  
-  Checks for and installs available driver and software updates using Windows Update APIs.
+## Release: v1.0.0 – Modernized GUI & Maintenance Enhancements
 
-- **Chocolatey Update:**  
-  Upgrades all installed Chocolatey packages.
+### Overview
+This initial release introduces a fully modernized GUI that improves the user experience and overall functionality. Key enhancements include a reorganized layout with clearly grouped update tasks and maintenance checks, a dynamic status label that shows the current task, and a progress bar that updates as each task completes.
 
-- **Windows App Update:**  
-  Uses [winget](https://github.com/microsoft/winget-cli) to check for and upgrade Windows apps.
+### Key Enhancements
+- **Modernized User Interface:**  
+  - Two group boxes separate the update tasks (drivers, software, Chocolatey, and apps) from the maintenance checks (settings, SFC, disk health, performance).  
+  - A dynamic status label displays the current task.  
+  - A progress bar visually indicates the overall progress of maintenance tasks.  
+  - Improved spacing, anchoring, and auto-scrolling ensure that no controls are cut off, even on smaller screens.
+  
+- **Enhanced Maintenance Features:**  
+  - Supports updating drivers and software through Windows Update.  
+  - Upgrades all installed Chocolatey packages.  
+  - Updates Windows apps using winget (and prompts installation via Microsoft Store if winget is missing).  
+  - Checks important Windows settings (e.g., UAC, Windows Update service, and Windows Defender Firewall).  
+  - Runs the System File Checker (SFC) and performs diagnostic tests on disk health and system performance.
 
-- **System File Checker (SFC):**  
-  Runs SFC to verify and repair system file integrity.
+- **Robust Logging & Error Handling:**  
+  - Detailed logging is available both in the GUI and as a log file in the `%TEMP%` folder.
+  - Error messages and progress updates help users troubleshoot if any tasks fail.
 
-- **Diagnostics:**  
-  Checks disk health (using CIM) and system performance (CPU and memory usage).
-
-- **Windows Settings Verification:**  
-  Ensures critical settings (e.g., UAC, Windows Defender Firewall) are correctly configured.
-
-- **GUI Interface:**  
-  A Windows Forms-based GUI for running individual tasks or all maintenance tasks at once, with real-time logging.
+---
 
 ## Prerequisites
 
 - Windows PowerShell (v5.1 or later)
-- Administrator privileges (the script auto-elevates if not run as admin)
+- Administrator privileges (the script auto-elevates if necessary)
 - [Chocolatey](https://chocolatey.org/) (for Chocolatey package updates)
 - [winget](https://github.com/microsoft/winget-cli) (for updating Windows apps)
 
+---
+
 ## How to Use
 
-1. **Clone or Download the Repository:**  
-   Use `git clone` or download the ZIP file.
+1. **Clone or Download the Repository:**
 
-2. **Run the Script:**  
-   Right-click `SystemMaintenance.ps1` and select **Run with PowerShell** or execute it from an elevated PowerShell prompt.
+   ```bash
+   git clone https://github.com/XeVierCode/SystemMaintenanceForWindows
+   ```
 
-3. **Using the GUI:**  
-   - Click individual buttons to run specific maintenance tasks.
-   - Use the **Run All Maintenance Tasks** button to execute all tasks in sequence.
-   - Logs are displayed in the GUI and saved to a log file in the `%TEMP%` directory.
+2. **Run the Script:**
 
-4. **Post-Maintenance:**  
-   If any task indicates that a reboot is required, please restart your computer.
+   Double-click **SystemMaintenance.bat** and click **Yes** when prompted for administrator permissions.  
+   The BAT file launches **Core.ps1**, which contains the GUI and core functionality.
+
+3. **Using the GUI:**
+
+   - Read the instructions displayed at the top of the application.
+   - Use the **Update Tasks** group to run individual update tasks (Drivers, Software, Chocolatey, and Windows Apps).
+   - Use the **Maintenance Checks** group for system diagnostics (Settings, SFC, Disk Health, Performance).
+   - Click the **Run All Maintenance Tasks** button to execute all tasks sequentially. The status label will indicate the current task, and the progress bar will update accordingly.
+   - View logs in the log box; a complete log is saved to the `%TEMP%` folder.
+
+4. **Post-Maintenance:**
+
+   If any task indicates that a reboot is required, please restart your computer to complete the updates.
+
+---
 
 ## Contributing
 
-Contributions are welcome! Feel free to fork this repository and submit pull requests with improvements or bug fixes.
+Contributions are welcome! Feel free to fork the repository and submit pull requests with improvements, bug fixes, or additional features.
+
+---
 
 ## License
 
